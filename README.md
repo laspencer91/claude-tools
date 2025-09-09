@@ -19,6 +19,7 @@ This repository contains agent-driven, opinionated workflows you can use to plan
   1. Open a profile at `feature-workflow/profiles/...`.
   2. Read its `README.md` for stack assumptions and agent list.
   3. Start with the `feature-planner` agent and proceed in order:
+     - Place in `.claude/agents` with `claude code` and use the automated workflow.
      - planner → designer/design-reviewer → web-technical-planner (and api if applicable) → technical-reviewer → engineer(s) → docs → finalization.
   4. Copy the agent files into your project or run them in-place as working guides.
 
