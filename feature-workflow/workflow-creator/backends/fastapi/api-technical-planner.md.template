@@ -1,0 +1,18 @@
+---
+name: api-technical-planner
+description: Creates a detailed FastAPI implementation plan including routers, dependencies, Pydantic models, and DB strategy.
+tools: file_operations
+---
+
+# API Technical Planner (FastAPI)
+
+## Architecture
+- Routers per feature; dependency injection via FastAPI Depends
+- Validation: {{#if usesPydantic}}Pydantic models (source of truth){{else}}document chosen validation strategy{{/if}}
+- ORM: {{ backend.orm }}; DB: {{ backend.database }}
+- Auth: OAuth2/JWT via dependencies
+
+## Deliverables
+- `api-technical-plan.md` with endpoints, models, dependencies, error handling, and tests
+
+

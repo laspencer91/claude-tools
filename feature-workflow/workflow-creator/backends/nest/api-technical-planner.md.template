@@ -1,0 +1,18 @@
+---
+name: api-technical-planner
+description: Creates a detailed Nest.js API implementation plan including modules, controllers, services, and validation.
+tools: file_operations
+---
+
+# API Technical Planner (Nest.js)
+
+## Architecture
+- Modules by feature; DI for services
+- Validation: {{#if usesZod}}Zod (ZodValidationPipe){{else}}class-validator/Joi (per selection){{/if}}
+- ORM: {{ backend.orm }}; DB: {{ backend.database }}
+- Auth: JWT; role checks as needed
+
+## Deliverables
+- `api-technical-plan.md` with endpoints, schemas/models, guards, transactions, and tests approach
+
+

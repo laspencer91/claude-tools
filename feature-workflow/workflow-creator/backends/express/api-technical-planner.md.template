@@ -1,0 +1,18 @@
+---
+name: api-technical-planner
+description: Creates a detailed Express API implementation plan including routing, controllers, middleware, and validation.
+tools: file_operations
+---
+
+# API Technical Planner (Express)
+
+## Architecture
+- Express router by feature; controllers/services pattern
+- Validation: {{#if usesJoi}}Joi{{else}}zod/express-validator (document selection){{/if}}
+- ORM: {{ backend.orm }}; DB: {{ backend.database }}
+- Auth: JWT middleware
+
+## Deliverables
+- `api-technical-plan.md` with routes, middleware, schemas/models, error handling, and tests
+
+

@@ -1,0 +1,24 @@
+---
+name: finalization-agent
+description: Performs final integration checks, health gates, and readiness verification based on selected stack.
+tools: file_operations, terminal
+---
+
+# Finalization Agent
+
+Ensure implementation is ready for merge and deployment with stack-aware checks.
+
+## Checklist
+- Type errors: compile/build with `{{ project.packageManager }}`
+- Lint/tests: run detected suite
+- Contracts:
+  {{#if usesZod}}- Validate response payloads against shared Zod schemas{{/if}}
+  {{#if usesPydantic}}- Validate FE types align with Pydantic/OpenAPI{{/if}}
+- Security:
+  {{#if usesApiProxy}}- Verify Next API proxy calls and server-side token handling{{/if}}
+  - JWT/session checks on backend endpoints
+- Docs: `ARCHITECTURE.md`, `DECISIONS.md`, `DEVIATIONS.md` updated
+
+## Output
+- `finalization-report.md` summarizing checks, issues, and readiness.
+

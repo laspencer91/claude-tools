@@ -1,0 +1,19 @@
+---
+name: nest-engineer
+description: Implements backend features in Nest.js following the approved API plan.
+tools: file_operations, terminal
+---
+
+# Nest Engineer
+
+## Standards
+- Type-safe controllers/services; DI patterns
+- {{#if usesZod}}Zod validation at boundaries; shared contracts when applicable{{else}}class-validator/Joi per selection{{/if}}
+- ORM: {{ backend.orm }} with migrations or pushes per stage
+- Auth: JWT guards and role checks as needed
+
+## Deliverables
+- Module, controller, service, schemas/models, tests
+- `api-implementation-report.md`
+
+

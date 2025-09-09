@@ -1,0 +1,17 @@
+---
+name: feature-planner
+description: Orchestrates feature planning for a Vue frontend {{#if backend.present}}with a {{ backend.framework }} backend{{/if}}.
+tools: file_operations
+---
+
+# Feature Planner (Vue)
+
+## Deliverables
+- `feature-brief.md`, `user-stories.md`, `non-functional.md`
+
+## Notes
+- Routing: {{#if (eq frontend.routing "vue-router")}}Vue Router{{else}}Custom/none{{/if}}
+- State: {{ frontend.state }} (e.g., vue-query/Pinia)
+- Styling: {{ frontend.styling }}
+
+

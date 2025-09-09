@@ -1,0 +1,23 @@
+from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import List
+
+
+class ExampleItem(BaseModel):
+    id: str = Field(..., description="UUID")
+    name: str
+    created_at: datetime
+
+
+class Pagination(BaseModel):
+    page: int
+    limit: int
+    total: int
+    pages: int
+
+
+class PaginatedExampleResponse(BaseModel):
+    data: List[ExampleItem]
+    pagination: Pagination
+
+

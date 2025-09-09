@@ -1,0 +1,18 @@
+---
+name: api-technical-planner
+description: Creates a detailed Gin (Go) implementation plan including routers, handlers, services, and validation.
+tools: file_operations
+---
+
+# API Technical Planner (Gin)
+
+## Architecture
+- Gin routers/groups; handlers + services
+- Validation: {{#if usesGoValidator}}go-playground/validator with struct tags{{else}}document chosen strategy{{/if}}
+- ORM: {{ backend.orm }} (e.g., GORM); DB: {{ backend.database }}
+- Auth: JWT middleware; context user extraction
+
+## Deliverables
+- `api-technical-plan.md` with routes, handlers, models, error handling, and tests
+
+

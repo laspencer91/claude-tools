@@ -1,0 +1,19 @@
+import { z } from 'zod'
+
+export const ExampleItemSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string().min(1),
+  createdAt: z.preprocess(
+    (arg) => (typeof arg === 'string' || arg instanceof Date ? new Date(arg) : undefined),
+    z.date()
+  ).transform((d) => d.toISOString()),
+})
+export type ExampleItemDto = z.infer<typeof ExampleItemSchema>
+
+export const PaginatedExampleResponseSchema = z.object({
+  data: z.array(ExampleItemSchema),
+  pagination: z.object({ page: z.number().int().min(1), limit: z.number().int(), total: z.number().int(), pages: z.number().int() }),
+})
+export type PaginatedExampleResponseDto = z.infer<typeof PaginatedExampleResponseSchema>
+
+

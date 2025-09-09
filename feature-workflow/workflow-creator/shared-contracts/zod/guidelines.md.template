@@ -1,0 +1,8 @@
+# Zod Shared Contracts Guidelines
+
+- Define Zod schemas in `{{ sharedContractsPath }}` for entities and requests/responses.
+- Infer TS types from schemas (`z.infer`) on both FE and BE to avoid duplication.
+- For dates, standardize on ISO strings via preprocessors.
+- Export barrel files for ergonomics.
+
+

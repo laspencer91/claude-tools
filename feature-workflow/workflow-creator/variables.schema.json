@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workflow Template Variables",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "properties": {
+        "type": { "enum": ["single", "monorepo"] },
+        "packageManager": { "enum": ["pnpm", "yarn", "npm"] }
+      },
+      "required": ["type", "packageManager"]
+    },
+    "frontend": {
+      "type": "object",
+      "properties": {
+        "present": { "type": "boolean" },
+        "framework": { "enum": ["next", "react", "vue", "none"] },
+        "routing": { "enum": ["next-app-router", "next-pages-router", "react-router", "vue-router", "none"] },
+        "state": { "enum": ["react-query", "zustand", "redux", "vue-query", "pinia", "none"] },
+        "styling": { "enum": ["tailwind", "styled-components", "css-modules", "mui", "chakra", "ant", "none"] }
+      },
+      "required": ["present", "framework"]
+    },
+    "backend": {
+      "type": "object",
+      "properties": {
+        "present": { "type": "boolean" },
+        "framework": { "enum": ["nest", "express", "fastapi", "django", "gin", "none"] },
+        "language": { "enum": ["node", "python", "go", "none"] },
+        "orm": { "enum": ["prisma", "typeorm", "sequelize", "sqlalchemy", "django-orm", "gorm", "none"] },
+        "database": { "enum": ["postgres", "mysql", "sqlite", "planetscale", "mongodb", "none"] }
+      },
+      "required": ["present", "framework"]
+    },
+    "contracts": {
+      "type": "object",
+      "properties": {
+        "validation": { "enum": ["zod", "joi", "pydantic", "drf-serializers", "goplayground", "none"] },
+        "sharedLocation": { "type": "string", "description": "Path for shared contracts, e.g., monorepo-root/packages/shared" }
+      },
+      "required": ["validation"]
+    },
+    "philosophy": {
+      "type": "object",
+      "properties": {
+        "security": { "enum": ["mvp-basic", "advanced"] },
+        "performance": { "enum": ["low", "medium", "high"] },
+        "accessibility": { "enum": ["basic", "wcag", "defer"] },
+        "documentation": { "enum": ["low", "medium", "high"] }
+      },
+      "required": ["security", "documentation"]
+    }
+  },
+  "required": ["project", "frontend", "backend", "contracts", "philosophy"]
+}
+
+
